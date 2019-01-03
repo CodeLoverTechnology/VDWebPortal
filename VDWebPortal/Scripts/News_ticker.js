@@ -6,7 +6,7 @@ $(document).ready(function() {
 		if ($(window).width() >= 500) {
 			$(this).find('li').width($(window).width() - parseInt($(this).css('left')));
 		}
-		if (i == 0) {
+		if (i === 0) {
 			$(this).addClass('ticker-active');
 		} else {
 			$(this).addClass('not-active');

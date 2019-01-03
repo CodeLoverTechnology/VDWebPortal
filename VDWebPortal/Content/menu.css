@@ -136,7 +136,7 @@ header {
     font-size: 14px;
     line-height: 1.428571429;
     color: #555555;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
     background-color: #ffffff;
     border: 1px solid #cccccc;
     border-radius: 0px;
@@ -299,9 +299,9 @@ header {
             display: table;
         }
 
-    .Bottum_Header .CartSign ul.nav {
+    /*.Bottum_Header .CartSign ul.nav {
       
-    }
+    }*/
         .Bottum_Header .CartSign ul.nav li {
             float: right;
             border-left: 1px solid #fff;

@@ -59,16 +59,48 @@
     <div class="row bg-dark" style="height:70px;"></div>
     <div class="clearfix"></div>
         <div class="ticker-container mt-2">
-            <div class="ticker-caption">
-                <p>Breaking News</p>
+            <div class="float-right w-25">
+                @if (!string.IsNullOrEmpty(Session["CurrentUser"] as string))
+                {
+                    if (Resources.VDResources.AdminUser == Session["EmailID"].ToString())
+                    {
+                        <a href='~/AdminCtrl/Index'>
+                            <i class="fa fa-home btn btn-secondary"></i> <label>Hi</label> @Session["CurrentUser"].ToString()
+                        </a>
+                    }
+                    else
+                    {
+                        @*<a href='~/Admin/Index'>
+                    <i class="fa fa-home btn btn-secondary"></i> <label>Hi</label> @Session["MemberName"].ToString()
+                </a>*@
+                    }
+
+                    <a href='~/Admin/NJALogOut'>
+                        <i class="fa fa-power-off btn btn-secondary"></i>
+                    </a>
+                }
+                else
+                {
+                    @*<a href='~/Home/NJASignUp'>
+                <i class="fa fa-user btn btn-secondary"></i> New User
+            </a>*@
+                    <a href='~/Home/Login'>
+                        <i class="fa fa-sign-in btn btn-success text-white">&nbsp;&nbsp; Login</i> 
+                    </a>
+                }
             </div>
-            <ul>
-                <li class="p-1"><span> <a href="#">बिदूपुर:स्थानीय बुद्धिजीवियों,राजनीतिक दल कर रहे समझौते की प्रयास।</a></span></li>
-                <li class="p-1"><span> <a href="#">बिदूपुर:अपराध की योजना बना रहे दो अपराधी गिरफ्तार।</a></span></li>
-                <li class="p-1"><span> <a href="#">जनता-जनार्दन के स्वास्थ्य लाभ के लिए आयूर्वेद एवं प्राकृतिक चिकित्सा का केंद्र खुला।</a></span></li>
-                <li class="p-1"><span> <a href="#">पितृदेव शिरोमणि व ज्योतिष वास्तु आयुर्वेद भूषण सम्मान मिला!</a></span></li>
-                <li class="p-1"><span> <a href="#">प्रोफेसर अनिरुद्ध प्रसाद उर्फ एपी दास के असामयिक निधन पर समाज को अद्वितीय क्षति</a></span></li>
-            </ul>
+            <div class="w-75">
+                <div class="ticker-caption">
+                    <p>Breaking News</p>
+                </div>
+                <ul>
+                    <li class="p-1"><span> <a href="#">बिदूपुर:स्थानीय बुद्धिजीवियों,राजनीतिक दल कर रहे समझौते की प्रयास।</a></span></li>
+                    <li class="p-1"><span> <a href="#">बिदूपुर:अपराध की योजना बना रहे दो अपराधी गिरफ्तार।</a></span></li>
+                    <li class="p-1"><span> <a href="#">जनता-जनार्दन के स्वास्थ्य लाभ के लिए आयूर्वेद एवं प्राकृतिक चिकित्सा का केंद्र खुला।</a></span></li>
+                    <li class="p-1"><span> <a href="#">पितृदेव शिरोमणि व ज्योतिष वास्तु आयुर्वेद भूषण सम्मान मिला!</a></span></li>
+                    <li class="p-1"><span> <a href="#">प्रोफेसर अनिरुद्ध प्रसाद उर्फ एपी दास के असामयिक निधन पर समाज को अद्वितीय क्षति</a></span></li>
+                </ul>
+            </div>
         </div>
     <div class="row mt-5 float-left">
         <div id="mySidenav" class="sidenav mt-5" style="width:250px;">

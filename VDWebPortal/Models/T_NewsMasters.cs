@@ -11,13 +11,16 @@ namespace VDWebPortal.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public partial class T_NewsMasters
     {
         public int NewsID { get; set; }
         public int NewsSubCategoryID { get; set; }
         public string Heading { get; set; }
         public string SubHeading { get; set; }
+        [UIHint("tinymce_jquery_full"), AllowHtml]
         public string BodyMessage { get; set; }
         public string VideoLink { get; set; }
         public string Remarks { get; set; }

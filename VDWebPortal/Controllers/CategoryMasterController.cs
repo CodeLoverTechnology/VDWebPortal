@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VDWebPortal.Models;
+using VDWebPortal.App_Code;
 
 namespace VDWebPortal.Controllers
 {
@@ -18,28 +19,49 @@ namespace VDWebPortal.Controllers
         // GET: CategoryMaster
         public async Task<ActionResult> Index()
         {
-            return View(await db.M_CategoryMaster.ToListAsync());
+            if (!CommonFunctionVD.CheckUserAuthentication())
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                return View(await db.M_CategoryMaster.ToListAsync());
+            }
         }
 
         // GET: CategoryMaster/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Home");
             }
-            M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
-            if (m_CategoryMaster == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
+                if (m_CategoryMaster == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(m_CategoryMaster);
             }
-            return View(m_CategoryMaster);
         }
 
         // GET: CategoryMaster/Create
         public ActionResult Create()
         {
-            return View();
+            if (!CommonFunctionVD.CheckUserAuthentication())
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: CategoryMaster/Create
@@ -47,31 +69,51 @@ namespace VDWebPortal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CategoryID,CategoryName,CategoryDesc,Sequence,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,Active")] M_CategoryMaster m_CategoryMaster)
+        public async Task<ActionResult> Create([Bind(Include = "CategoryName,CategoryDesc,Sequence")] M_CategoryMaster m_CategoryMaster)
         {
-            if (ModelState.IsValid)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                db.M_CategoryMaster.Add(m_CategoryMaster);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Home");
             }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    m_CategoryMaster.CreatedBy = Session["EmailID"].ToString();
+                    m_CategoryMaster.CreatedDate = DateTime.Now;
+                    m_CategoryMaster.ModifiedBy = Session["EmailID"].ToString();
+                    m_CategoryMaster.ModifiedDate = DateTime.Now;
+                    m_CategoryMaster.Active = true;
 
-            return View(m_CategoryMaster);
+                    db.M_CategoryMaster.Add(m_CategoryMaster);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+
+                return View(m_CategoryMaster);
+            }
         }
 
         // GET: CategoryMaster/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Home");
             }
-            M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
-            if (m_CategoryMaster == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
+                if (m_CategoryMaster == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(m_CategoryMaster);
             }
-            return View(m_CategoryMaster);
         }
 
         // POST: CategoryMaster/Edit/5
@@ -79,30 +121,47 @@ namespace VDWebPortal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CategoryID,CategoryName,CategoryDesc,Sequence,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,Active")] M_CategoryMaster m_CategoryMaster)
+        public async Task<ActionResult> Edit([Bind(Include = "CategoryID,CategoryName,CategoryDesc,Sequence,CreatedBy,CreatedDate,Active")] M_CategoryMaster m_CategoryMaster)
         {
-            if (ModelState.IsValid)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                db.Entry(m_CategoryMaster).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Home");
             }
-            return View(m_CategoryMaster);
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    m_CategoryMaster.ModifiedBy = Session["EmailID"].ToString();
+                    m_CategoryMaster.ModifiedDate = DateTime.Now;
+
+                    db.Entry(m_CategoryMaster).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View(m_CategoryMaster);
+            }
         }
 
         // GET: CategoryMaster/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
-            if (id == null)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Home");
             }
-            M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
-            if (m_CategoryMaster == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
+                if (m_CategoryMaster == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(m_CategoryMaster);
             }
-            return View(m_CategoryMaster);
         }
 
         // POST: CategoryMaster/Delete/5
@@ -110,10 +169,17 @@ namespace VDWebPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
-            db.M_CategoryMaster.Remove(m_CategoryMaster);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (!CommonFunctionVD.CheckUserAuthentication())
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                M_CategoryMaster m_CategoryMaster = await db.M_CategoryMaster.FindAsync(id);
+                db.M_CategoryMaster.Remove(m_CategoryMaster);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

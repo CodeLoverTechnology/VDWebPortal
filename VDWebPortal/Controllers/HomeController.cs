@@ -36,11 +36,19 @@ namespace VDWebPortal.Controllers
             string Password = frm["password"].ToString();
             if(Resources.VDResources.AdminUser == UserID && Resources.VDResources.P_Admin_User == Password)
             {
+                Session["CurrentUser"] = "Admin";
+                Session["EmailID"] = UserID;
                 return RedirectToAction("Index", "AdminCtrl", null);
             }
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Session["CurrentUser"] = "";
+            Session["EmailID"] = "";
+            return RedirectToAction("Index", "Home", null);
+        }
 
     }
 }

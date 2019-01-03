@@ -6,6 +6,10 @@
 
 <div class="row">
     <div class="container-fluid">
-        Hi Admin Page..
+        @Html.ActionLink("Master", "Index", "Master", null, new { @class = "btn btn-primary p-3 rounded" })
+        @Html.ActionLink("Category", "Index", "CategoryMaster", null, new { @class = "btn btn-primary  p-3 rounded" })
+        @Html.ActionLink("Sub Category", "Index", "SubCategoryMaster", null, new { @class = "btn btn-primary  p-3 rounded" })
+        @Html.ActionLink("News", "Index", "NewsMasters", null, new { @class = "btn btn-primary  p-3 rounded" })
     </div>
+   
 </div>

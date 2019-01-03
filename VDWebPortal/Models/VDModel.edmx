@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CategoryDesc" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Sequence" Type="int" />
@@ -23,7 +23,7 @@
           <Key>
             <PropertyRef Name="MasterID" />
           </Key>
-          <Property Name="MasterID" Type="int" Nullable="false" />
+          <Property Name="MasterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MasterValue" Type="nvarchar(max)" Nullable="false" />
           <Property Name="MasterTable" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Sequence" Type="int" />
@@ -37,7 +37,7 @@
           <Key>
             <PropertyRef Name="SubCategoryID" />
           </Key>
-          <Property Name="SubCategoryID" Type="int" Nullable="false" />
+          <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="SubCategoryName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SubCategoryDesc" Type="nvarchar(max)" Nullable="false" />
@@ -52,7 +52,7 @@
           <Key>
             <PropertyRef Name="NewsID" />
           </Key>
-          <Property Name="NewsID" Type="int" Nullable="false" />
+          <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NewsType" Type="int" Nullable="false" />
           <Property Name="NewsSubCategoryID" Type="int" Nullable="false" />
           <Property Name="Heading" Type="nvarchar(max)" Nullable="false" />

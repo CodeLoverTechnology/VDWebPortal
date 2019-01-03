@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VDWebPortal.Models;
+using VDWebPortal.App_Code;
 
 namespace VDWebPortal.Controllers
 {
@@ -18,28 +19,49 @@ namespace VDWebPortal.Controllers
         // GET: Master
         public async Task<ActionResult> Index()
         {
-            return View(await db.M_Master.ToListAsync());
+            if (!CommonFunctionVD.CheckUserAuthentication())
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                return View(await db.M_Master.ToListAsync());
+            }
         }
 
         // GET: Master/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Home");
             }
-            M_Master m_Master = await db.M_Master.FindAsync(id);
-            if (m_Master == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                M_Master m_Master = await db.M_Master.FindAsync(id);
+                if (m_Master == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(m_Master);
             }
-            return View(m_Master);
         }
 
         // GET: Master/Create
         public ActionResult Create()
         {
-            return View();
+            if (!CommonFunctionVD.CheckUserAuthentication())
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Master/Create
@@ -47,31 +69,51 @@ namespace VDWebPortal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "MasterID,MasterValue,MasterTable,Sequence,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,Active")] M_Master m_Master)
+        public async Task<ActionResult> Create([Bind(Include = "MasterValue,MasterTable,Sequence")] M_Master m_Master)
         {
-            if (ModelState.IsValid)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                db.M_Master.Add(m_Master);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Home");
             }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    m_Master.CreatedBy = Session["EmailID"].ToString();
+                    m_Master.CreatedDate = DateTime.Now;
+                    m_Master.ModifiedBy = Session["EmailID"].ToString();
+                    m_Master.ModifiedDate = DateTime.Now;
+                    m_Master.Active = true;
 
-            return View(m_Master);
+                    db.M_Master.Add(m_Master);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+
+                return View(m_Master);
+            }
         }
 
         // GET: Master/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Home");
             }
-            M_Master m_Master = await db.M_Master.FindAsync(id);
-            if (m_Master == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                M_Master m_Master = await db.M_Master.FindAsync(id);
+                if (m_Master == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(m_Master);
             }
-            return View(m_Master);
         }
 
         // POST: Master/Edit/5
@@ -79,30 +121,46 @@ namespace VDWebPortal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "MasterID,MasterValue,MasterTable,Sequence,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,Active")] M_Master m_Master)
+        public async Task<ActionResult> Edit([Bind(Include = "MasterID,MasterValue,MasterTable,Sequence,CreatedBy,CreatedDate,Active")] M_Master m_Master)
         {
-            if (ModelState.IsValid)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                db.Entry(m_Master).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Home");
             }
-            return View(m_Master);
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    m_Master.ModifiedBy = Session["EmailID"].ToString();
+                    m_Master.ModifiedDate = DateTime.Now;
+                    db.Entry(m_Master).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View(m_Master);
+            }
         }
 
         // GET: Master/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
-            if (id == null)
+            if (!CommonFunctionVD.CheckUserAuthentication())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Home");
             }
-            M_Master m_Master = await db.M_Master.FindAsync(id);
-            if (m_Master == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                M_Master m_Master = await db.M_Master.FindAsync(id);
+                if (m_Master == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(m_Master);
             }
-            return View(m_Master);
         }
 
         // POST: Master/Delete/5
@@ -110,10 +168,17 @@ namespace VDWebPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            M_Master m_Master = await db.M_Master.FindAsync(id);
-            db.M_Master.Remove(m_Master);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (!CommonFunctionVD.CheckUserAuthentication())
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                M_Master m_Master = await db.M_Master.FindAsync(id);
+                db.M_Master.Remove(m_Master);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

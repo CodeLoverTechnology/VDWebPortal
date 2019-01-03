@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VDWebPortal.App_Code;
 
 namespace VDWebPortal.Controllers
 {
@@ -11,7 +12,14 @@ namespace VDWebPortal.Controllers
         // GET: AdminCtrl
         public ActionResult Index()
         {
-            return View();
+            if (!CommonFunctionVD.CheckUserAuthentication())
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
