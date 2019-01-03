@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <h1 class="section-title">वैशाली डायरी संपर्क</h1>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="Contact_Form">
+                    <div class="section-Headtitle" style="text-align:left;">
+                        <h3 style="color:white;">Corporate Office</h3>
+                    </div>
+
+
+                    <address>
+                        <p>Hajipur, Vaishali</p>
+                        <p>Bihar-844101, India(भारत)</p>
+                        <span class="glyphicon glyphicon-earphone"> 91-9471-439247</span><br>
+                        <span class="glyphicon glyphicon-phone-alt"> 91-6224-260012 </span>
+                        <p><b>Info : </b><a href="mailto:info@ahaannews.com">info@ahaannews.com</a></p>
+                    </address>
+
+                    <div class="arrows">
+                        <span class="ar-right2"></span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 contact-form">
+                <form action="/Home/Contact" method="post">
+                    <input name="__RequestVerificationToken" type="hidden" value="mJ8LN8RUzgAiia6uBzB-6nu-l3awQk0A3eyEStl1MXmb7oiKGbwvo5de3wPhhgq05BZ3YIhdQNIgAfHIkbAHkYGPb3TSPW5iOtZ8GsuzewY1">                    <div class="form-horizontal">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-info">
+                                    <label class="control-label">Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="text" name="txtname" id="txtname" value="" class="form-control " placeholder="Enter full name" required="">
+                                    </div>
+                                    <!-- /.input-group -->
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-info">
+                                    <label class="control-label">Email Id</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                        <input type="text" name="txtemail" id="txtemail" value="" class="form-control " placeholder="Enter email" required="">
+                                    </div>
+                                    <!-- /.input-group -->
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-info">
+                                    <label class="control-label">Mobile No</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                        <input type="text" name="txtmobile" id="txtmobile" value="" class="form-control " placeholder="Enter mobile" required="">
+                                    </div>
+                                    <!-- /.input-group -->
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-info">
+                                    <label class="control-label">Country</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                        <input name="countryId" id="countryId" class="form-control" placeholder="Enter Country Name" required="">
+                                    </div>
+                                    <!-- /.input-group -->
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-info">
+                                    <label class="control-label">State</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-list"></i></div>
+                                        <input name="stateId" id="stateId" class="form-control" placeholder="Enter State Name" required="">
+                                    </div>
+                                    <!-- /.input-group -->
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-info">
+                                    <label class="control-label">City</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-list"></i></div>
+                                        <input name="cityId" id="cityId" class="form-control" placeholder="Enter City Name" required="">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-info">
+                                    <label class="control-label">Message</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                        </span>
+                                        <textarea name="txtmessage" id="txtmessage" cols="40" rows="3" class="form-control " style="padding: .6em 1em; font-size: 1.2em; width: 100%;background: #fff; border: 1px solid #ccc;" placeholder="Enter your message" required=""></textarea>
+                                    </div>
+                                    <!-- /.input-group -->
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div style="text-align:center;">
+                                <button type="submit" class="btn btn-primary btn-social "> <i class="fa fa-share-square-o" aria-hidden="true"></i> Request </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

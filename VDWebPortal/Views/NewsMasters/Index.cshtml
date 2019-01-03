@@ -1,0 +1,112 @@
+﻿@model IEnumerable<VDWebPortal.Models.T_NewsMasters>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Heading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubHeading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BodyMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfViews)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_SubCategoryMaster.SubCategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_Master.MasterValue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Heading)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubHeading)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BodyMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfViews)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_SubCategoryMaster.SubCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_Master.MasterValue)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsID })
+        </td>
+    </tr>
+}
+
+</table>

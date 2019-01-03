@@ -1,0 +1,131 @@
+﻿@model VDWebPortal.Models.T_NewsMasters
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>T_NewsMasters</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Heading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Heading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubHeading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubHeading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BodyMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BodyMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfViews)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfViews)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_SubCategoryMaster.SubCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_SubCategoryMaster.SubCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_Master.MasterValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_Master.MasterValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

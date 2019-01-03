@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - वैशाली डायरी</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link href="~/Content/menu.css" rel="stylesheet" />
+    <link href="~/Content/News_ticker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="~/Scripts/News_ticker.js"></script>
+
+</head>
+<body>
+    <div class="row affix">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <span style="font-size:30px;cursor:pointer;color: #fff;padding: 5px 15px;" id="SideMenuShow"><i class="fa fa-th"></i></span> @*onclick="openNav()"*@
+            <a href="#"><img src="~/Content/Images/LOKTANTRA_EK_KADAM.JPG" class="img-fluid p-1 img-thumbnail" style="width:150px;height:75px;" /></a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <div class="h1 text-white pt-3 font-weight-bold">
+                वैशाली डायरी
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 text-center">
+            <span class="text-white pt-1">
+                RNI Ref No. - 1325847
+            </span>
+            <form class="form-group">
+                <div class="input-group">
+                    <input type="text" placeholder="Search Vaishali News" class="form-control" />
+                    <span class="input-group-append">
+                        <button class="btn btn-secondary btn-outline-success border-left-0 border rounded" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+            
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12  text-center pt-3">
+            <a href="https://www.facebook.com/#" target="_blank"> <i class="fa fa-facebook text-white btn btn-success"></i></a>
+            <a href="https://plus.google.com/#" target="_blank"> <i class="fa fa-google-plus text-white btn btn-success"></i></a>
+            <a href="https://twitter.com/#" target="_blank"> <i class="fa fa-twitter text-white btn btn-success"></i></a>
+            @*<a href="https://www.linkedin.com/in/#" target="_blank"> <i class="fa fa-linkedin text-white btn btn-success"></i></a>*@
+            <a href="https://www.instagram.com/#" target="_blank"> <i class="fa fa-instagram text-white btn btn-success"></i></a>
+            <a href="#"><i class="fa fa-newspaper-o btn btn-success text-white">&nbsp;&nbsp; E-News</i> </a>
+            <br />
+            <span class="text-white">
+                Title Code - BIHHIH11817
+            </span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row bg-dark" style="height:70px;"></div>
+    <div class="clearfix"></div>
+        <div class="ticker-container mt-2">
+            <div class="ticker-caption">
+                <p>Breaking News</p>
+            </div>
+            <ul>
+                <li class="p-1"><span> <a href="#">बिदूपुर:स्थानीय बुद्धिजीवियों,राजनीतिक दल कर रहे समझौते की प्रयास।</a></span></li>
+                <li class="p-1"><span> <a href="#">बिदूपुर:अपराध की योजना बना रहे दो अपराधी गिरफ्तार।</a></span></li>
+                <li class="p-1"><span> <a href="#">जनता-जनार्दन के स्वास्थ्य लाभ के लिए आयूर्वेद एवं प्राकृतिक चिकित्सा का केंद्र खुला।</a></span></li>
+                <li class="p-1"><span> <a href="#">पितृदेव शिरोमणि व ज्योतिष वास्तु आयुर्वेद भूषण सम्मान मिला!</a></span></li>
+                <li class="p-1"><span> <a href="#">प्रोफेसर अनिरुद्ध प्रसाद उर्फ एपी दास के असामयिक निधन पर समाज को अद्वितीय क्षति</a></span></li>
+            </ul>
+        </div>
+    <div class="row mt-5 float-left">
+        <div id="mySidenav" class="sidenav mt-5" style="width:250px;">
+            <div class="bg-dark text-center text-white mt-3">
+
+                <a href="~/Home/Index"><img src="~/Content/Images/LOKTANTRA_EK_KADAM.JPG" class="img-fluid img-thumbnail" /></a>
+                <span>RNI Ref No. - 1325847</span><br />
+                <span>Title Code - BIHHIH11817</span>
+            </div>
+                        <ul class="list-group mb-2 font-weight-normal">
+                            <li class="list-group-item bg-secondary"><a href="~/Home/Index" class="text-white">मुखपृष्ठ</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">बिहार</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">वैशाली</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">ग्रेटर पटना</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">मनोरंजन</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">खेल</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">क्रिकेट</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">पंचांग</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">उद्धोग</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">रोजगार</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">स्वास्थ्य</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">सुझाव</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">क्राइम</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">अनोखी</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">ताजखबरें</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">बड़ी खबरें</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">डायरी विशेष</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">शिक्षा</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">प्रतियोगिता</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">धर्म</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">साहित्य</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">दिल्ली</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">उत्तर प्रदेश</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">झारखंड</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">विदेश</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">देश</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">बॉलीवुड</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">हॉलीवुड</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">भोजपुरी लोकमंच</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">खाना खजाना</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">फोटो गैलरी</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">टॉप 100</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">जीवन मंत्र</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">अपना शहर</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">ई-पेपर</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">अहान न्यूज़</a></li>
+                            <li  class="list-group-item list-group-item-action "><a href="#">भारत नवनिर्माण</a></li>
+                        </ul>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+    </div>
+    <div class="card-footer">
+        <footer>
+            <p style="font-family:Arial;">Copy Right <span class="glyphicon glyphicon-copyright-mark"><span style="font-family:Arial;"> 2018-2023 वैशाली डायरी</span></span></p>
+            <div class="Fixed_RghtCont">
+                <p style="font-family:Arial;">Presented By :<a href="http://codelovertechnology.com/" target="_blank"> CodeLover Technology</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#mySidenav").hide();
+        }
+        );
+        $("#SideMenuShow").click(function () {
+            $("#mySidenav").toggle();
+        });
+       </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
