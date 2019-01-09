@@ -68,6 +68,22 @@
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="T_E_NewsPaper">
+          <Key>
+            <PropertyRef Name="ENewsID" />
+          </Key>
+          <Property Name="ENewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleNews" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NoOfViews" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <Association Name="FK_M_SubCategoryMaster_M_CategoryMaster">
           <End Role="M_CategoryMaster" Type="Self.M_CategoryMaster" Multiplicity="1" />
           <End Role="M_SubCategoryMaster" Type="Self.M_SubCategoryMaster" Multiplicity="*" />
@@ -109,6 +125,7 @@
           <EntitySet Name="M_Master" EntityType="Self.M_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_SubCategoryMaster" EntityType="Self.M_SubCategoryMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_NewsMasters" EntityType="Self.T_NewsMasters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_NewsPaper" EntityType="Self.T_E_NewsPaper" Schema="VDAdminUser" store:Type="Tables" />
           <AssociationSet Name="FK_M_SubCategoryMaster_M_CategoryMaster" Association="Self.FK_M_SubCategoryMaster_M_CategoryMaster">
             <End Role="M_CategoryMaster" EntitySet="M_CategoryMaster" />
             <End Role="M_SubCategoryMaster" EntitySet="M_SubCategoryMaster" />
@@ -236,6 +253,7 @@
             <End Role="M_Master" EntitySet="M_Master" />
             <End Role="T_NewsMasters" EntitySet="T_NewsMasters" />
           </AssociationSet>
+          <EntitySet Name="T_E_NewsPaper" EntityType="VaishaliDairyDBModel.T_E_NewsPaper" />
         </EntityContainer>
         <Association Name="FK_T_NewsMasters_M_Master">
           <End Type="VaishaliDairyDBModel.M_Master" Role="M_Master" Multiplicity="1" />
@@ -249,6 +267,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="T_E_NewsPaper">
+          <Key>
+            <PropertyRef Name="ENewsID" />
+          </Key>
+          <Property Name="ENewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleNews" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfViews" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -319,6 +353,23 @@
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_NewsPaper">
+            <EntityTypeMapping TypeName="VaishaliDairyDBModel.T_E_NewsPaper">
+              <MappingFragment StoreEntitySet="T_E_NewsPaper">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="NoOfViews" ColumnName="NoOfViews" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="TitleNews" ColumnName="TitleNews" />
+                <ScalarProperty Name="ENewsID" ColumnName="ENewsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

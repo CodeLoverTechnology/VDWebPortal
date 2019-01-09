@@ -70,6 +70,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~/eNewsPaper.
+        /// </summary>
+        internal static string eNewsPath {
+            get {
+                return ResourceManager.GetString("eNewsPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \eNewsPaper.
+        /// </summary>
+        internal static string eNewsPathShow {
+            get {
+                return ResourceManager.GetString("eNewsPathShow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vaishali$123.
         /// </summary>
         internal static string P_Admin_User {

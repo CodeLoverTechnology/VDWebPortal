@@ -12,6 +12,7 @@
         <AssociationConnector Association="VaishaliDairyDBModel.FK_M_SubCategoryMaster_M_CategoryMaster" ManuallyRouted="false" />
         <AssociationConnector Association="VaishaliDairyDBModel.FK_T_NewsMasters_M_SubCategoryMaster" ManuallyRouted="false" />
         <AssociationConnector Association="VaishaliDairyDBModel.FK_T_NewsMasters_M_Master" />
+        <EntityTypeShape EntityType="VaishaliDairyDBModel.T_E_NewsPaper" Width="1.5" PointX="3.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

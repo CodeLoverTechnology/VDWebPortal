@@ -19,7 +19,7 @@
     <div class="row affix">
         <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
             <span style="font-size:30px;cursor:pointer;color: #fff;padding: 5px 15px;" id="SideMenuShow"><i class="fa fa-th"></i></span> @*onclick="openNav()"*@
-            <a href="#"><img src="~/Content/Images/LOKTANTRA_EK_KADAM.JPG" class="img-fluid p-1 img-thumbnail" style="width:150px;height:75px;" /></a>
+            <a href="http://vaishalidairy.co.in"><img src="~/Content/Images/LOKTANTRA_EK_KADAM.JPG" class="img-fluid p-1 img-thumbnail" style="width:150px;height:75px;" /></a>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
             <div class="h1 text-white pt-3 font-weight-bold">
@@ -48,7 +48,8 @@
             <a href="https://twitter.com/#" target="_blank"> <i class="fa fa-twitter text-white btn btn-success"></i></a>
             @*<a href="https://www.linkedin.com/in/#" target="_blank"> <i class="fa fa-linkedin text-white btn btn-success"></i></a>*@
             <a href="https://www.instagram.com/#" target="_blank"> <i class="fa fa-instagram text-white btn btn-success"></i></a>
-            <a href="#"><i class="fa fa-newspaper-o btn btn-success text-white">&nbsp;&nbsp; E-News</i> </a>
+            @Html.ActionLink("e-News Paper", "eNews", "Home", null, new { @class = "fa fa-newspaper-o btn btn-success text-white" })
+            @*<a href=""><i class="fa fa-newspaper-o btn btn-success text-white">&nbsp;&nbsp; E-News</i> </a>*@
             <br />
             <span class="text-white">
                 Title Code - BIHHIH11817
@@ -75,7 +76,7 @@
                 </a>*@
                     }
 
-                    <a href='~/Admin/NJALogOut'>
+                    <a href='~/Home/Logout'>
                         <i class="fa fa-power-off btn btn-secondary"></i>
                     </a>
                 }
@@ -106,7 +107,7 @@
         <div id="mySidenav" class="sidenav mt-5" style="width:250px;">
             <div class="bg-dark text-center text-white mt-3">
 
-                <a href="~/Home/Index"><img src="~/Content/Images/LOKTANTRA_EK_KADAM.JPG" class="img-fluid img-thumbnail" /></a>
+                <a href="http://vaishalidairy.co.in"><img src="~/Content/Images/LOKTANTRA_EK_KADAM.JPG" class="img-fluid img-thumbnail" /></a>
                 <span>RNI Ref No. - 1325847</span><br />
                 <span>Title Code - BIHHIH11817</span>
             </div>

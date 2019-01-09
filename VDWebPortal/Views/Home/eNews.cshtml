@@ -1,0 +1,50 @@
+﻿@model IEnumerable<VDWebPortal.Models.T_E_NewsPaper>
+
+@{
+    ViewBag.Title = "eNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>e-News</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TitleNews)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfViews)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i><a href="@(Resources.VDResources.eNewsPathShow + Html.DisplayFor(modelItem => item.FileName))" target="_blank">  @Html.DisplayFor(modelItem => item.TitleNews)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfViews)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+        </tr>
+    }
+</table>

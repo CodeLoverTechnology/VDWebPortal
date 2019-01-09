@@ -259,3 +259,4 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/VDWebPortal/eNewsPaper/2019_1_9_Wednesday

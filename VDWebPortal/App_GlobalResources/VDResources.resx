@@ -120,6 +120,12 @@
   <data name="AdminUser" xml:space="preserve">
     <value>VD@AhaanNews.com</value>
   </data>
+  <data name="eNewsPath" xml:space="preserve">
+    <value>~/eNewsPaper</value>
+  </data>
+  <data name="eNewsPathShow" xml:space="preserve">
+    <value>\eNewsPaper</value>
+  </data>
   <data name="P_Admin_User" xml:space="preserve">
     <value>Vaishali$123</value>
   </data>

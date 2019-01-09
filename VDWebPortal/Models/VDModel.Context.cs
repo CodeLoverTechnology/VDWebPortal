@@ -29,5 +29,6 @@ namespace VDWebPortal.Models
         public virtual DbSet<M_Master> M_Master { get; set; }
         public virtual DbSet<M_SubCategoryMaster> M_SubCategoryMaster { get; set; }
         public virtual DbSet<T_NewsMasters> T_NewsMasters { get; set; }
+        public virtual DbSet<T_E_NewsPaper> T_E_NewsPaper { get; set; }
     }
 }
