@@ -129,4 +129,10 @@
   <data name="P_Admin_User" xml:space="preserve">
     <value>Vaishali$123</value>
   </data>
+  <data name="NewsImagePath" xml:space="preserve">
+    <value>~/NewsPaperPics</value>
+  </data>
+  <data name="NewsImagePathShow" xml:space="preserve">
+    <value>\NewsPaperPics</value>
+  </data>
 </root>

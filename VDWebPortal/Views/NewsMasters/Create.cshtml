@@ -51,7 +51,7 @@
 </script>
 
 @*<link href="~/Scripts/tinymce/skins/lightgray/content.min.css" rel="stylesheet" />*@
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "NewsMasters", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -91,6 +91,16 @@
                 @Html.ValidationMessageFor(model => model.SubHeading, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">Upload Images</div>
+            <label>Base Image URL : http://vaishalidairy.co.in/NewsPaperPics/ + Image Name with Extension</label>
+            <div class="col-md-10">
+                <input type="file" multiple id="ImagesUpload" name="ImagesUpload" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+                <div id="UploadedImages" class="p-1 m-1 text-black-50">
+                </div>
+            </div>
+        </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.BodyMessage, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -142,3 +152,11 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+    $("input[type='file']").change(function (e) {
+        var fileList = e.target.files;
+        $.each(fileList, function (i) {
+            $("#UploadedImages").append('<label id="img_' + i + '" name="img_' + i + '" class="img-thumbnail p-1 m-1">' + fileList[i].name + '</label>');
+        });
+    });
+</script>

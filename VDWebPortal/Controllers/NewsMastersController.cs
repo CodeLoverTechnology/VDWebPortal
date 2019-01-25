@@ -44,6 +44,9 @@ namespace VDWebPortal.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 T_NewsMasters t_NewsMasters = await db.T_NewsMasters.FindAsync(id);
+                string Bodymsg = t_NewsMasters.BodyMessage.Replace("[img]http://vaishalidairy.co.in/NewsPaperPics/", "<img src='http://vaishalidairy.co.in/NewsPaperPics/");
+                Bodymsg += Bodymsg.Replace("[/img]", "' /> ");
+                t_NewsMasters.BodyMessage = Bodymsg;
                 if (t_NewsMasters == null)
                 {
                     return HttpNotFound();
@@ -82,6 +85,28 @@ namespace VDWebPortal.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    string FullPathWithFileName1 = null;
+                    string FolderPathForImage1 = null;
+                    string FolderPath = Server.MapPath(Resources.VDResources.NewsImagePath);
+
+                    if (!string.IsNullOrEmpty(Request.Files["ImagesUpload"].FileName))
+                    {
+                        for(int i =0; i< Request.Files.Count;i++)
+                        {
+                            Request.Files[i].SaveAs(FolderPath);
+                        }
+                        
+                        //FullPathWithFileName1 = FolderPath + "\\" + Request.Files["ImagesUpload"].FileName;
+                        //FolderPathForImage1 = "\\" + DateTime.Now.Year + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.DayOfWeek + "\\" + Request.Files["ImagesUpload"].FileName;
+                    }
+                    //if (CommonFunctionVD.IsFolderExist(FolderPath))
+                    //{
+                    //    if (!string.IsNullOrEmpty(Request.Files["ImagesUpload"].FileName))
+                    //    {
+                    //        Request.Files["ImagesUpload"].SaveAs(FullPathWithFileName1);
+                    //    }
+                    //}
+
                     t_NewsMasters.CreatedBy = Session["EmailID"].ToString();
                     t_NewsMasters.CreatedDate = DateTime.Now;
                     t_NewsMasters.ModifiedBy = Session["EmailID"].ToString();

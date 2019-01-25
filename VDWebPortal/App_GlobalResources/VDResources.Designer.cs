@@ -88,6 +88,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~/NewsPaperPics.
+        /// </summary>
+        internal static string NewsImagePath {
+            get {
+                return ResourceManager.GetString("NewsImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \NewsPaperPics.
+        /// </summary>
+        internal static string NewsImagePathShow {
+            get {
+                return ResourceManager.GetString("NewsImagePathShow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vaishali$123.
         /// </summary>
         internal static string P_Admin_User {

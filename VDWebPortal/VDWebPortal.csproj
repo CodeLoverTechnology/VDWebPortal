@@ -565,6 +565,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="eNewsPaper\" />
+    <Folder Include="NewsPaperPics\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
